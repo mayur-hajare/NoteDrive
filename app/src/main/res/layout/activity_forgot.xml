@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
+    android:background="@color/white"
     tools:context=".ForgotActivity">
 
     <RelativeLayout
@@ -27,41 +27,37 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/aclonica"
             android:text="Forgot  Password"
-            android:textColor="#BAFFFFFF"
+            android:textColor="@color/black"
             android:textSize="30sp" />
 
 
     </LinearLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/centralLine"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp">
 
         <EditText
-            android:id="@+id/loginemail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/forgotmail"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
             android:hint="Enter Mail"
+            android:background="@color/white"
+            android:layout_above="@+id/centralLine"
             android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+
 
 
     <RelativeLayout
-        android:id="@+id/login"
+
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@+id/email"
+        android:layout_below="@+id/centralLine"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/button_design">
 
         <TextView
+            android:id="@+id/forgotBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
