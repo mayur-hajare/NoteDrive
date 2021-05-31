@@ -18,7 +18,7 @@ public class ForgotActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot);
-
+        getSupportActionBar().hide();
         email = findViewById(R.id.forgotmail);
         // forgotBtn.findViewById(R.id.forgotBtn);
 
