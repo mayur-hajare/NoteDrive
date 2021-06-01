@@ -22,6 +22,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.grpc.CallCredentials;
+
 public class CreateNoteActivity extends AppCompatActivity {
 
     EditText edTitle, edContent;
@@ -61,25 +63,21 @@ public class CreateNoteActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Both field are Required...", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").document();
-                    Map<String, Object> note = new HashMap<>();
-                    note.put("title", title);
-                    note.put("content", content);
+                    DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").document();
+                    Map<String,Object> note;
+                    note = new HashMap<>();
+                    note.put("title",title);
+                    note.put("content",content);
 
                     documentReference.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(getApplicationContext(), "Note Created Successfully...", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(CreateNoteActivity.this, MainActivity.class));
+                            Toast.makeText(getApplicationContext(), "Note created successfully...", Toast.LENGTH_SHORT).show();
 
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(), "Field To Create Note...", Toast.LENGTH_SHORT).show();
-                            //startActivity(new Intent(CreateNoteActivity.this,MainActivity.class));
-                        }
                     });
+
+
                 }
 
             }
