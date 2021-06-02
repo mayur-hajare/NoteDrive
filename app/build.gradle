@@ -41,4 +41,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //firebase recyclerview
+    implementation 'com.firebaseui:firebase-ui-firestore:4.1.0'
+
 }

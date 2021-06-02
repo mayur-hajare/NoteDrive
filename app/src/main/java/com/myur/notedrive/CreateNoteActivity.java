@@ -73,6 +73,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(getApplicationContext(), "Note created successfully...", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(CreateNoteActivity.this,MainActivity.class));
 
                         }
                     });
