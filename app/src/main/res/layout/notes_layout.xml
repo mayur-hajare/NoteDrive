@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="#BAFFD600"
+
     android:elevation="25dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/noteCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="10dp"
         app:cardMaxElevation="8dp">
 
         <LinearLayout
