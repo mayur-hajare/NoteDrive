@@ -28,7 +28,7 @@
         app:backgroundTint="@color/black"
         android:backgroundTint="@color/white"
         android:src="@drawable/ic_baseline_add"
-        app:maxImageSize="30dp"
+        app:maxImageSize="50dp"
         >
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>

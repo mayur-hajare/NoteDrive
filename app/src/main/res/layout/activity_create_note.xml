@@ -11,39 +11,43 @@
         android:id="@+id/tooleBarCn"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:background="@color/purple_500"
+        >
     <EditText
         android:id="@+id/TitleOfNote"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="12sp"
-        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:fontFamily="@font/adamina"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:hint="Enter Title Here"
+        android:textColorHint="@color/white"
+        android:hint="@string/enter_title_here"
         />
     </androidx.appcompat.widget.Toolbar>
     <EditText
         android:id="@+id/contentOfNote"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Enter your content here"
+        android:hint="@string/enter_your_content_here"
         android:layout_below="@+id/tooleBarCn"
         android:gravity="top"
-        android:textColor="@color/purple_700"
-        android:padding="15dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/black"
+        android:padding="20dp"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/saveNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_save"
+        android:src="@drawable/cloudupload"
         app:backgroundTint="@color/black"
-        app:maxImageSize="30dp" />
+        app:maxImageSize="35dp" />
 
 </RelativeLayout>

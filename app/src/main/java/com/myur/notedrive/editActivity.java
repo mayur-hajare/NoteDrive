@@ -75,11 +75,15 @@ public class editActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(getApplicationContext(), "Upload Successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(editActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast.makeText(getApplicationContext(), "Failed To update ", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(editActivity.this, MainActivity.class);
+                            startActivity(intent);
                         }
                     });
 

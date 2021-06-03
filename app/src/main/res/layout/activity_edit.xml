@@ -11,13 +11,16 @@
         android:id="@+id/tooleBarEn"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:background="@color/purple_500"
+        >
         <EditText
             android:id="@+id/TitleOfNoteEn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="12sp"
-            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:fontFamily="@font/adamina"
+            android:text="title"
+            android:textColor="@color/white"
             android:textStyle="bold"
             />
     </androidx.appcompat.widget.Toolbar>
@@ -27,6 +30,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tooleBarEn"
         android:gravity="top"
+        android:background="@color/white"
+        android:fontFamily="sans-serif"
         android:textColor="@color/black"
         android:text="Hello"
         android:padding="15dp"
@@ -41,9 +46,9 @@
         android:layout_marginRight="28dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/white"
-        android:src="@drawable/ic_baseline_save"
+        android:src="@drawable/cloudedit"
         app:backgroundTint="@color/black"
-        app:maxImageSize="30dp" />
+        app:maxImageSize="60dp" />
 
 
 </RelativeLayout>

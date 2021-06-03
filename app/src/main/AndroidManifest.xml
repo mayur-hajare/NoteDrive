@@ -13,14 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteDrive">
         <activity android:name=".detailActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            >
 
         </activity>
         <activity android:name=".editActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:colorMode="default"/>
         <activity
             android:name=".CreateNoteActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:colorMode="default"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".ForgotActivity" />
         <activity android:name=".SignupActivity" />

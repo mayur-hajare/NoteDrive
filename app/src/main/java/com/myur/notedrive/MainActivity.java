@@ -236,6 +236,23 @@ public class MainActivity extends AppCompatActivity {
         colorCode.add(R.color.color4);
         colorCode.add(R.color.color5);
         colorCode.add(R.color.color6);
+
+        colorCode.add(R.color.color7);
+        colorCode.add(R.color.color8);
+        colorCode.add(R.color.color9);
+        colorCode.add(R.color.color10);
+        colorCode.add(R.color.color11);
+        colorCode.add(R.color.color12);
+        colorCode.add(R.color.color13);
+        colorCode.add(R.color.color14);
+        colorCode.add(R.color.color15);
+        colorCode.add(R.color.color16);
+        colorCode.add(R.color.color17);
+        colorCode.add(R.color.color18);
+
+
+
+
         Random random = new Random();
         int code = random.nextInt(colorCode.size());
         return colorCode.get(code);

@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -46,6 +47,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -73,8 +75,9 @@ public class CreateNoteActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(getApplicationContext(), "Note created successfully...", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(CreateNoteActivity.this,MainActivity.class));
 
+                            Intent intent=new Intent(CreateNoteActivity.this,MainActivity.class);
+                            startActivity(intent);
                         }
                     });
 
