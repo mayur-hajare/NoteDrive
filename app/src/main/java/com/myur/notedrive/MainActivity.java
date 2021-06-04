@@ -3,6 +3,7 @@ package com.myur.notedrive;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -32,15 +33,22 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 public class MainActivity extends AppCompatActivity {
 
 
     FloatingActionButton mCreateNote;
     private FirebaseAuth firebaseAuth;
+    String op;
+    String AES = "AES";
+    String password = "DrIvENote";
 
     RecyclerView recyclerView;
     StaggeredGridLayoutManager staggeredGridLayoutManager;
@@ -83,9 +91,20 @@ public class MainActivity extends AppCompatActivity {
                 int colorCode = getrandomColor();
                 noteViewHolder.mNote.setBackgroundColor(noteViewHolder.itemView.getResources().getColor(colorCode, null));
 
+                String title = firebasemodel.getTitle().toString();
+                String content = firebasemodel.getContent().toString();
+                Toast.makeText(getApplicationContext(), content, Toast.LENGTH_SHORT).show();
 
-                noteViewHolder.nTitle.setText(firebasemodel.getTitle());
-                noteViewHolder.nContent.setText(firebasemodel.getContent());
+                try {
+                    op = decrypt(content, password);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //textView.setText(op);
+
+                noteViewHolder.nTitle.setText(title);
+                noteViewHolder.nContent.setText(op);
+                String DecContent = noteViewHolder.nContent.getText().toString();
 
                 String docId = noteAdapter.getSnapshots().getSnapshot(i).getId();
 
@@ -95,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         //Details Activity
                         Intent intent = new Intent(v.getContext(), detailActivity.class);
                         intent.putExtra("title", firebasemodel.getTitle());
-                        intent.putExtra("content", firebasemodel.getContent());
+                        intent.putExtra("content", op);
                         intent.putExtra("noteId", docId);
 
                         v.getContext().startActivity(intent);
@@ -113,12 +132,12 @@ public class MainActivity extends AppCompatActivity {
                         popupMenu.getMenu().add("Edit").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
-                                Intent intent = new Intent(v.getContext(), editActivity.class);
-                                intent.putExtra("title", firebasemodel.getTitle());
-                                intent.putExtra("content", firebasemodel.getContent());
-                                intent.putExtra("noteId", docId);
+                                Intent i = new Intent(v.getContext(), editActivity.class);
+                                i.putExtra("title", firebasemodel.getTitle());
+                                i.putExtra("content", DecContent);
+                                i.putExtra("noteId", docId);
 
-                                v.getContext().startActivity(intent);
+                                v.getContext().startActivity(i);
                                 return false;
                             }
                         });
@@ -162,6 +181,27 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setAdapter(noteAdapter);
 
+
+    }
+
+    private String decrypt(String content, String password) throws Exception {
+        SecretKeySpec key = generateKey(password);
+        Cipher c = Cipher.getInstance(AES);
+        c.init(Cipher.DECRYPT_MODE, key);
+        byte[] decodedValue = Base64.decode(content, Base64.DEFAULT);
+        byte[] decValue = c.doFinal(decodedValue);
+        String decryptedValue = new String(decValue);
+        return decryptedValue;
+    }
+
+
+    private SecretKeySpec generateKey(String password) throws Exception {
+        final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] bytes = password.getBytes("UTF-8");
+        digest.update(bytes, 0, bytes.length);
+        byte[] key = digest.digest();
+        SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
+        return secretKeySpec;
 
     }
 
@@ -249,8 +289,6 @@ public class MainActivity extends AppCompatActivity {
         colorCode.add(R.color.color16);
         colorCode.add(R.color.color17);
         colorCode.add(R.color.color18);
-
-
 
 
         Random random = new Random();

@@ -56,4 +56,5 @@ public class detailActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
