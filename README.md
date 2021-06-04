@@ -38,7 +38,7 @@ Simplistic UI
 
 
 
-# About the Testup App
+# About the NoteDrive App
 - Notes are automatically encrypted and stored on Google Cloud (Firebase).
 - Access your notes on any Android device anywhere in the world.
 - Random Color to Your Notes.
