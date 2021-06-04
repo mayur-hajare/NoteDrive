@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/aclonica"
-            android:text="Creat Account"
+            android:text="Create Account"
             android:textColor="@color/black"
             android:textSize="30sp" />
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/aclonica"
-            android:text="SignIn"
+            android:text="SignUp"
             android:textColor="@color/black"
             android:textSize="12dp" />
 

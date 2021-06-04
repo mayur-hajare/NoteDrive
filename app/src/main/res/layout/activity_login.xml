@@ -127,7 +127,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/adamina"
-        android:text="Creat an account? SIGN IN"
+        android:text="Creat an account? SIGN UP"
         android:textColor="@color/black" />
 
 </RelativeLayout>

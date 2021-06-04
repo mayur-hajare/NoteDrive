@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         //Details Activity
                         Intent intent = new Intent(v.getContext(), detailActivity.class);
                         intent.putExtra("title", firebasemodel.getTitle());
-                        intent.putExtra("content", op);
+                        intent.putExtra("content", DecContent);
                         intent.putExtra("noteId", docId);
 
                         v.getContext().startActivity(intent);
