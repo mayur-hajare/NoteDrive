@@ -35,7 +35,7 @@
                     android:padding="10dp"
                     android:text="Title"
                     android:textColor="@color/black"
-                    android:textSize="25dp" />
+                    android:textSize="20dp" />
 
                 <ImageView
                     android:id="@+id/menuPopButton"
@@ -53,7 +53,7 @@
                 android:padding="10dp"
                 android:text="content"
                 android:textColor="@color/purple_500"
-                android:textSize="15sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
