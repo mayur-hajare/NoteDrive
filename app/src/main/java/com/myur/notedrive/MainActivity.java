@@ -34,8 +34,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import javax.crypto.Cipher;
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     String op;
     String AES = "AES";
     String password = "DrIvENote";
+    TextView date, date2;
 
     RecyclerView recyclerView;
     StaggeredGridLayoutManager staggeredGridLayoutManager;
@@ -62,13 +67,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        date = findViewById(R.id.Date);
+        date2 = findViewById(R.id.Date2);
+
         firebaseAuth = FirebaseAuth.getInstance();
         mCreateNote = findViewById(R.id.createNote);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        getSupportActionBar().setTitle("All Notes");
+//        getSupportActionBar().setTitle("All Notes");
+        //current date
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
+
+        SimpleDateFormat df = new SimpleDateFormat("dd", Locale.getDefault());
+        String formattedDate = df.format(c);
+        date.setText(formattedDate);
+        SimpleDateFormat df2 = new SimpleDateFormat("EEE-MM", Locale.getDefault());
+        String formattedDate2 = df2.format(c);
+        date2.setText(formattedDate2);
 
         mCreateNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
-        staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        staggeredGridLayoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setAdapter(noteAdapter);
 
@@ -289,7 +307,6 @@ public class MainActivity extends AppCompatActivity {
         colorCode.add(R.color.color16);
         colorCode.add(R.color.color17);
         colorCode.add(R.color.color18);
-
 
         Random random = new Random();
         int code = random.nextInt(colorCode.size());

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/Wh"
     android:layout_height="match_parent"
     tools:context=".detailActivity">
 
@@ -39,7 +40,7 @@
         android:layout_below="@+id/tooleBarDn"
         android:fontFamily="sans-serif"
         android:textSize="22sp"
-        android:background="@color/white"
+        android:background="@color/Wh"
         android:gravity="top"
         android:hint="Enter your content here"
         android:paddingTop="10dp"
@@ -54,7 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="28dp"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/Wh"
         android:src="@drawable/cloudedit"
         android:elevation="30dp"
         app:maxImageSize="60dp" />

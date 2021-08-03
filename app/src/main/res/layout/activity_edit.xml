@@ -11,31 +11,30 @@
         android:id="@+id/tooleBarEn"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/purple_500"
-        >
+        android:background="@color/purple_500">
+
         <EditText
             android:id="@+id/TitleOfNoteEn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="25sp"
             android:fontFamily="@font/adamina"
             android:text="title"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            />
+            android:textSize="25sp"
+            android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
+
     <EditText
         android:id="@+id/contentOfNoteEn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tooleBarEn"
-        android:gravity="top"
-        android:background="@color/white"
+        android:background="@color/Wh"
         android:fontFamily="sans-serif"
-        android:textColor="@color/black"
-        android:text="Hello"
+        android:gravity="top"
         android:padding="15dp"
-        />
+        android:text="Hello"
+        android:textColor="@color/black" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/saveEn"
@@ -45,7 +44,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="28dp"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/Wh"
         android:src="@drawable/cloudedit"
         app:backgroundTint="@color/black"
         app:maxImageSize="60dp" />

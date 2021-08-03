@@ -2,4 +2,9 @@
     <string name="app_name">NoteDrive</string>
     <string name="enter_title_here">Enter Title Here</string>
     <string name="enter_your_content_here">Enter your content here</string>
+    <string name="m">M</string>
+    <string name="w">W</string>
+    <string name="t">T</string>
+    <string name="f">F</string>
+    <string name="s">S</string>
 </resources>
